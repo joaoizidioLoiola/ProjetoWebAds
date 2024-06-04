@@ -1,3 +1,7 @@
+const public_key = "506ed6f89fef4fafdfc895eec59c7f35";
+const private_key = "f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c";
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const taskForm = document.getElementById('task-form');
     const taskInput = document.getElementById('task-input');
@@ -12,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let tasks = [];
     let localTaskId = 201; // ID inicial para tarefas criadas localmente
     let currentEditId = null; // ID da tarefa que está sendo editada
+
+    const fetchMarvel = async () => {
+        const res = await fetch(`http://gateway.marvel.com/v1/public/comics?ts=1&apikey=${public_key}&hash=${private_key}`)
+        console.log(res)
+    }
 
     // Função para buscar tarefas da API
     const fetchTasks = async () => {
@@ -158,6 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+
+    fetchMarvel();
 
     // Buscar e renderizar tarefas ao carregar a página
     fetchTasks();
