@@ -1,7 +1,3 @@
-const public_key = '506ed6f89fef4fafdfc895eec59c7f35'
-const private_key = 'f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c';
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const taskForm = document.getElementById('task-form');
     const taskInput = document.getElementById('task-input');
@@ -16,11 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let tasks = [];
     let localTaskId = 201; // ID inicial para tarefas criadas localmente
     let currentEditId = null; // ID da tarefa que está sendo editada
+    const public_key = '506ed6f89fef4fafdfc895eec59c7f35'
+    const private_key = 'f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c';
 
+    base_url = "https://gateway.marvel.com";
     const marv = [];
     const fetchMarvel = async () => {
         try {
-            const res = await fetch(`https://gateway.marvel.com/v1/public/comics?ts=1&apikey=506ed6f89fef4fafdfc895eec59c7f35&hash=f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c`)
+            const res = await fetch(`${base_url}/v1/public/characters=${public_key}`)
             const da = await response.json()
             marv = da;
 
