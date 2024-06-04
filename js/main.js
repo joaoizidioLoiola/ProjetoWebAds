@@ -17,9 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let localTaskId = 201; // ID inicial para tarefas criadas localmente
     let currentEditId = null; // ID da tarefa que está sendo editada
 
+    const marv = [];
     const fetchMarvel = async () => {
-        const res = await fetch(`http://gateway.marvel.com/v1/public/comics?ts=1&apikey=${public_key}&hash=${private_key}`)
-        console.log(res)
+        try {
+            const res = await fetch(`http://gateway.marvel.com/v1/public/comics?ts=1&apikey=${public_key}&hash=${private_key}`)
+            const da = await response.json()
+            marv = da;
+
+        } catch (error) {
+
+            console.log('erro:', error)
+        }
     }
 
     // Função para buscar tarefas da API
