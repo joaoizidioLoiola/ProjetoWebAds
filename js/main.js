@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch(url, { mode: 'no-cors' })
             const da = await response.json()
             marv = da;
+            console.log(marv);
 
         } catch (error) {
 
