@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const url = (`${base_url}/v1/public/comics?apikey=${public_key}`)
             const res = await fetch(url, { mode: 'no-cors' })
-            res = await response.json()
-            marv = da;
-            console.log(res);
+            const data = await res.json()
+            marv = data;
+            console.log(marv);
 
         } catch (error) {
 
