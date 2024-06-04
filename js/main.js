@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const marv = [];
     const fetchMarvel = async () => {
         try {
-            const url = (`${base_url}/v1/public/characters?apikey=${public_key}`)
+            const url = (`${base_url}/v1/public/comics?apikey=${public_key}`)
             const res = await fetch(url, { mode: 'no-cors' })
             const da = await response.json()
             marv = da;
-            console.log(marv);
+            console.log(da);
 
         } catch (error) {
 
