@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const marv = [];
     const fetchMarvel = async () => {
         try {
-            const res = await fetch(`http://gateway.marvel.com/v1/public/comics?ts=1&apikey=${public_key}&hash=${private_key}`)
+            const res = await fetch(`https://gateway.marvel.com/v1/public/comics?ts=1&apikey=${public_key}&hash=${private_key}`)
             const da = await response.json()
             marv = da;
 
