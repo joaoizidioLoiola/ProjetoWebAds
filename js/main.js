@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const marv = [];
     const fetchMarvel = async () => {
         try {
-            const res = await fetch(`${base_url}/v1/public/characters=${public_key}`)
+            const url = (`${base_url}/v1/public/characters?apikey=${public_key}`)
+            const res = await fetch(url, { mode: 'no-cors' })
             const da = await response.json()
             marv = da;
 
