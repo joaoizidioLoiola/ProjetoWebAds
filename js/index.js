@@ -1,6 +1,5 @@
 const public_key = '506ed6f89fef4fafdfc895eec59c7f35';
 const private_key = 'f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c';
-const baseUrl = 'https://gateway.marvel.com/v1/public/characters';
 
 async function fetchMarvelCharacters() {
   try {
@@ -14,7 +13,7 @@ async function fetchMarvelCharacters() {
   }
 }
 
-function displayCharacterModal(character) {
+function displayCharacterModal(characters) {
   // Criar modal para o personagem
   const modal = document.createElement('div');
   modal.classList.add('modal');
@@ -23,9 +22,9 @@ function displayCharacterModal(character) {
   modal.innerHTML = `
     <div class="modal-content">
       <span class="close">&times;</span>
-      <h3>${character.name}</h3>
-      <img src="https://${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" />
-      <p>${character.description}</p>
+      <h3>${characters.name}</h3>
+      <img src="${characters.thumbnail.path}.${characters.thumbnail.extension}" alt="${characters.name}" />
+      <p>${characters.description}</p>
       <button class="select-character">Selecionar</button>
     </div>
   `;
@@ -50,7 +49,7 @@ function displayCharacterModal(character) {
 
 // Exibir modais dos personagens
 fetchMarvelCharacters().then(characters => {
-  characters.forEach(character => {
-    displayCharacterModal(character);
+  characters.forEach(characters => {
+    displayCharacterModal(characters);
   });
 });
