@@ -1,3 +1,4 @@
+const public_key = "506ed6f89fef4fafdfc895eec59c7f35";
 
 let currentPlayer = 1;
 let player1Count = 0;
