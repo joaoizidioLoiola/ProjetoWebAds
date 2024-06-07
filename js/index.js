@@ -1,10 +1,15 @@
-const public_key = '506ed6f89fef4fafdfc895eec59c7f35';
-const private_key = 'f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c';
 
+let currentPlayer = 1;
+let player1Count = 0;
+let player2Count = 0;
 
-async function fetchMarvelCharacters() {
+async function fetchMarvelCharacters(query = '') {
+  const url = query
+    ? `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&limit=100&apikey=${public_key}`
+    : `https://gateway.marvel.com:443/v1/public/characters?limit=100&apikey=${public_key}`;
+
   try {
-    const response = await fetch(`https://gateway.marvel.com:443/v1/public/characters?limit=100&apikey=${public_key}`);
+    const response = await fetch(url);
     const data = await response.json();
     const characters = data.data.results;
     return characters;
@@ -16,6 +21,7 @@ async function fetchMarvelCharacters() {
 
 function displayCharacterList(characters) {
   const characterList = document.getElementById('character-list');
+  characterList.innerHTML = ''; // Clear previous characters
 
   characters.forEach(character => {
     const card = document.createElement('div');
@@ -73,38 +79,36 @@ function displayCharacterModal(character) {
 }
 
 function addCharacterToHand(character) {
-  const playerHand = document.getElementById('player-hand');
-  const card = document.createElement('div');
-  card.classList.add('card');
-  card.setAttribute('draggable', true);
-  card.innerHTML = `
-    <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
-    <h3>${character.name}</h3>
-  `;
-  card.addEventListener('dragstart', drag);
-
-  playerHand.appendChild(card);
+  if (currentPlayer === 1 && player1Count < 5) {
+    const playerHand = document.getElementById('player-hand');
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+      <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
+      <h3>${character.name}</h3>
+    `;
+    playerHand.appendChild(card);
+    player1Count++;
+    if (player1Count === 5) currentPlayer = 2;
+  } else if (currentPlayer === 2 && player2Count < 5) {
+    const opponentHand = document.getElementById('opponent-hand');
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+      <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
+      <h3>${character.name}</h3>
+    `;
+    opponentHand.appendChild(card);
+    player2Count++;
+    if (player2Count === 5) currentPlayer = 1;
+  }
 }
 
-function allowDrop(event) {
-  event.preventDefault();
-}
-
-function drag(event) {
-  event.dataTransfer.setData('text', event.target.id);
-}
-
-function drop(event) {
-  event.preventDefault();
-  const data = event.dataTransfer.getData('text');
-  const card = document.getElementById(data);
-  event.target.appendChild(card);
-}
-
-// Configurar áreas de drop
-document.querySelectorAll('.card-hand').forEach(hand => {
-  hand.addEventListener('dragover', allowDrop);
-  hand.addEventListener('drop', drop);
+document.getElementById('search-input').addEventListener('input', (event) => {
+  const query = event.target.value;
+  fetchMarvelCharacters(query).then(characters => {
+    displayCharacterList(characters);
+  });
 });
 
 fetchMarvelCharacters().then(characters => {

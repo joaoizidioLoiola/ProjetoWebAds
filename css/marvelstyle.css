@@ -13,11 +13,11 @@
 
 .modal-content {
   background-color: #fff;
-  margin: 5% auto;
-  padding: 20px;
+  margin: 10% auto;
+  padding: 10px;
   border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
+  width: 60%;
+  max-width: 400px;
   border-radius: 5px;
   position: relative;
   display: flex;
@@ -40,8 +40,8 @@
 }
 
 .modal-content img {
-  max-width: 150px;
-  margin-right: 20px;
+  max-width: 100px;
+  margin-right: 10px;
   border-radius: 5px;
 }
 

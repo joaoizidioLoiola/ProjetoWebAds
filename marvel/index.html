@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marvel Cards</title>
     <link rel="stylesheet" href="../css/marvelstyle.css" />
-    <script src="../js/index.js"></script>
   </head>
   <body>
     <header>
@@ -15,6 +14,11 @@
     <main>
       <section id="heroes" class="card-area">
         <h2>Selecione seus heróis</h2>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Buscar personagem..."
+        />
         <!-- Lista de personagens -->
         <div id="character-list" class="character-list"></div>
       </section>
@@ -40,5 +44,7 @@
     </main>
 
     <footer>Desenvolvido por João Izídio</footer>
+
+    <script src="../js/index.js"></script>
   </body>
 </html>
