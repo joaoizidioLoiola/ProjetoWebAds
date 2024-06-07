@@ -37,23 +37,21 @@ function displayCharacterModal(characters) {
 }
 
 // Botão para fechar o modal
-const closeButton = modal.querySelector('.close');
-closeButton.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+// const closeButton = modal.querySelector('.close');
+// closeButton.addEventListener('click', () => {
+//   modal.style.display = 'none';
+// });
 
 // Botão para selecionar o personagem
 const selectButton = modal.querySelector('.select-character');
 selectButton.addEventListener('click', () => {
-  // Aqui você pode adicionar a lógica para selecionar o personagem e adicionar à mão do jogador
   console.log(`Personagem ${character.name} selecionado`);
   modal.style.display = 'none';
 });
 
-// Adicionar modal ao documento
 document.getElementById('hero-modals').appendChild(modal);
 
-// Exibir modais dos personagens
+
 fetchMarvelCharacters().then(characters => {
   displayCharacterModal(characters);
 });
