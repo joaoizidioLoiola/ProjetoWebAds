@@ -40,6 +40,10 @@ button:hover {
   align-items: center;
   flex-direction: column;
 }
+.modal-content .imgModal {
+  max-width: 55%;
+  border-radius: 5px;
+}
 
 .close {
   position: absolute;

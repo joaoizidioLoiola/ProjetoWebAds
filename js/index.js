@@ -54,7 +54,7 @@ function displayCharacterModal(character) {
   modal.innerHTML = `
     <div class="modal-content">
       <span class="close">&times;</span>
-      <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
+      <img class="imgModal" src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
       <div>
         <h3>${character.name}</h3>
         <p>${character.description || 'Sem descrição disponível.'}</p>
