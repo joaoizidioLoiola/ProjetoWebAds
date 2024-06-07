@@ -3,14 +3,17 @@ const private_key = 'f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c';
 
 async function fetchMarvel() {
   try {
-    const response = await fetch(`https://gateway.marvel.com/v1/public/characters?apikey=${public_key}`)
+    const response = await fetch(`https://gateway.marvel.com/v1/public/characters?limit=150&apikey=${public_key}`)
     const data = await response.json()
-    console.log(data.data.results);
+    const persoganens = data.data.results;
+    return persoganens;
 
   } catch (error) {
-
-    console.log('erro:', error)
+    console.error('Erro ao buscar personagens da Marvel:', error);
+    return [];
   }
 }
 
-fetchMarvel();
+fetchMarvel().then(characters => {
+  console.log(characters);
+});
