@@ -5,9 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marvel Cards</title>
     <link rel="stylesheet" href="../css/marvelstyle.css" />
-    <script src="../js/index.js"></script>
   </head>
   <body>
+    <header>
+      <h1>Marvel Cards</h1>
+    </header>
+
+    <main>
+      <section id="heroes" class="card-area">
+        <h2>Selecione seus heróis</h2>
+        <!-- Área onde os modais dos heróis serão exibidos -->
+        <div id="hero-modals" class="modals"></div>
+      </section>
+
+      <section id="battlefield" class="card-area">
+        <h2>Batalha</h2>
+        <!-- Área onde os jogadores podem arrastar e soltar as cartas -->
+        <div id="player-area" class="player-area">
+          <h3>Jogador 1</h3>
+          <div id="player-hand" class="card-hand" droppable="true"></div>
+        </div>
+        <div id="opponent-area" class="player-area">
+          <h3>Jogador 2</h3>
+          <div id="opponent-hand" class="card-hand" droppable="true"></div>
+        </div>
+      </section>
+
+      <section id="results" class="card-area">
+        <h2>Resultados</h2>
+        <!-- Área onde os resultados da batalha serão exibidos -->
+        <div id="battle-results"></div>
+      </section>
+    </main>
+
     <footer>Desenvolvido por João Izídio</footer>
+
+    <script src="../js/index.js"></script>
   </body>
 </html>
