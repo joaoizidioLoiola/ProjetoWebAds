@@ -14,12 +14,14 @@ async function fetchMarvelCharacters() {
 }
 
 function displayCharacterModal(characters) {
-  // Criar modal para o personagem
-  const modal = document.createElement('div');
-  modal.classList.add('modal');
+  const modalContainer = document.getElementById('modal-container');
 
-  // Conteúdo do modal
-  modal.innerHTML = `
+  characters.forEach(characters => {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    // Conteúdo do modal
+    modal.innerHTML = `
     <div class="modal-content">
       <span class="close">&times;</span>
       <h3>${characters.name}</h3>
@@ -29,27 +31,28 @@ function displayCharacterModal(characters) {
     </div>
   `;
 
-  // Botão para fechar o modal
-  const closeButton = modal.querySelector('.close');
-  closeButton.addEventListener('click', () => {
-    modal.style.display = 'none';
+    modalContainer.appendChild(modal);
   });
-
-  // Botão para selecionar o personagem
-  const selectButton = modal.querySelector('.select-character');
-  selectButton.addEventListener('click', () => {
-    // Aqui você pode adicionar a lógica para selecionar o personagem e adicionar à mão do jogador
-    console.log(`Personagem ${character.name} selecionado`);
-    modal.style.display = 'none';
-  });
-
-  // Adicionar modal ao documento
-  document.getElementById('hero-modals').appendChild(modal);
 }
+
+// Botão para fechar o modal
+const closeButton = modal.querySelector('.close');
+closeButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Botão para selecionar o personagem
+const selectButton = modal.querySelector('.select-character');
+selectButton.addEventListener('click', () => {
+  // Aqui você pode adicionar a lógica para selecionar o personagem e adicionar à mão do jogador
+  console.log(`Personagem ${character.name} selecionado`);
+  modal.style.display = 'none';
+});
+
+// Adicionar modal ao documento
+document.getElementById('hero-modals').appendChild(modal);
 
 // Exibir modais dos personagens
 fetchMarvelCharacters().then(characters => {
-  characters.forEach(characters => {
-    displayCharacterModal(characters);
-  });
+  displayCharacterModal(characters);
 });
