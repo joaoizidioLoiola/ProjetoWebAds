@@ -14,18 +14,37 @@ async function fetchMarvelCharacters() {
   }
 }
 
-function displayCharacterModal(characters) {
-  const modalContainer = document.getElementById('modal-container');
+function displayCharacterList(characters) {
+  const characterList = document.getElementById('character-list');
 
   characters.forEach(character => {
-    const modal = document.createElement('div');
-    modal.classList.add('modal');
+    const card = document.createElement('div');
+    card.classList.add('character-card');
 
-    // Conteúdo do modal
-    modal.innerHTML = `
+    // Conteúdo da carta
+    card.innerHTML = `
+      <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
+      <h3>${character.name}</h3>
+    `;
+
+    card.addEventListener('click', () => {
+      displayCharacterModal(character);
+    });
+
+    characterList.appendChild(card);
+  });
+}
+
+function displayCharacterModal(character) {
+  // Cria e exibe o modal para o personagem selecionado
+  const modal = document.createElement('div');
+  modal.classList.add('modal');
+  modal.style.display = 'block';
+
+  modal.innerHTML = `
     <div class="modal-content">
       <span class="close">&times;</span>
-      <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" />
+      <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
       <div>
         <h3>${character.name}</h3>
         <p>${character.description || 'Sem descrição disponível.'}</p>
@@ -34,24 +53,22 @@ function displayCharacterModal(characters) {
     </div>
   `;
 
-    modalContainer.appendChild(modal);
+  document.body.appendChild(modal);
 
-    // Botão para fechar o modal
-    const closeButton = modal.querySelector('.close');
-    closeButton.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
+  // Botão para fechar o modal
+  const closeButton = modal.querySelector('.close');
+  closeButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.removeChild(modal);
+  });
 
-    // Botão para selecionar o personagem
-    const selectButton = modal.querySelector('.select-character');
-    selectButton.addEventListener('click', () => {
-      console.log(`Personagem ${character.name} selecionado`);
-      modal.style.display = 'none';
-      addCharacterToHand(character);
-    });
-
-    // Mostrar o modal
-    modal.style.display = 'block';
+  // Botão para selecionar o personagem
+  const selectButton = modal.querySelector('.select-character');
+  selectButton.addEventListener('click', () => {
+    console.log(`Personagem ${character.name} selecionado`);
+    modal.style.display = 'none';
+    document.body.removeChild(modal);
+    addCharacterToHand(character);
   });
 }
 
@@ -61,7 +78,7 @@ function addCharacterToHand(character) {
   card.classList.add('card');
   card.setAttribute('draggable', true);
   card.innerHTML = `
-    <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" />
+    <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
     <h3>${character.name}</h3>
   `;
   card.addEventListener('dragstart', drag);
@@ -91,5 +108,5 @@ document.querySelectorAll('.card-hand').forEach(hand => {
 });
 
 fetchMarvelCharacters().then(characters => {
-  displayCharacterModal(characters);
+  displayCharacterList(characters);
 });

@@ -45,6 +45,29 @@
   border-radius: 5px;
 }
 
+/* Estilo da lista de personagens */
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.character-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  flex: 1 0 21%; /* Responsividade para 5 personagens por linha */
+}
+
+.character-card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
 /* Estilo das áreas de jogador */
 .player-area {
   display: inline-block;
