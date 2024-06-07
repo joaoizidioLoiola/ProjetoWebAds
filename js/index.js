@@ -24,7 +24,7 @@ function displayCharacterModal(character) {
     <div class="modal-content">
       <span class="close">&times;</span>
       <h3>${character.name}</h3>
-      <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" />
+      <img src="https://${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" />
       <p>${character.description}</p>
       <button class="select-character">Selecionar</button>
     </div>
