@@ -15,15 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const public_key = '506ed6f89fef4fafdfc895eec59c7f35'
     const private_key = 'f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c';
 
-    base_url = "https://gateway.marvel.com";
     const marv = [];
-    const fetchMarvel = async () => {
+    async function fetchMarvel() {
         try {
-            const url = (`${base_url}/v1/public/comics?apikey=${public_key}`)
-            const res = await fetch(url, { mode: 'no-cors' })
-            const data = await res.json()
-            marv = data;
-            console.log(marv);
+            const response = await fetch(`https://gateway.marvel.com/v1/public/comics?apikey=${public_key}`)
+            const data = await response.json()
+            console.log(data.data.results);
 
         } catch (error) {
 
