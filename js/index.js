@@ -12,3 +12,5 @@ async function fetchMarvel() {
     console.log('erro:', error)
   }
 }
+
+fetchMarvel();
