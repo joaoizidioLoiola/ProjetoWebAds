@@ -13,19 +13,21 @@
 
 .modal-content {
   background-color: #fff;
-  margin: 10% auto;
+  margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
   max-width: 600px;
   border-radius: 5px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
@@ -35,6 +37,12 @@
 .close:hover,
 .close:focus {
   color: black;
+}
+
+.modal-content img {
+  max-width: 150px;
+  margin-right: 20px;
+  border-radius: 5px;
 }
 
 /* Estilo das áreas de jogador */
@@ -66,6 +74,14 @@
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.card img {
+  max-width: 50px;
+  margin-right: 10px;
+  border-radius: 5px;
 }
 
 /* Estilo do rodapé */

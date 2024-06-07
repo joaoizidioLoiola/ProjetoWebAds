@@ -1,6 +1,7 @@
 const public_key = '506ed6f89fef4fafdfc895eec59c7f35';
 const private_key = 'f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c';
 
+
 async function fetchMarvelCharacters() {
   try {
     const response = await fetch(`https://gateway.marvel.com:443/v1/public/characters?limit=100&apikey=${public_key}`);
@@ -24,10 +25,12 @@ function displayCharacterModal(characters) {
     modal.innerHTML = `
     <div class="modal-content">
       <span class="close">&times;</span>
-      <h3>${character.name}</h3>
       <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" />
-      <p>${character.description || 'Sem descrição disponível.'}</p>
-      <button class="select-character">Selecionar</button>
+      <div>
+        <h3>${character.name}</h3>
+        <p>${character.description || 'Sem descrição disponível.'}</p>
+        <button class="select-character">Selecionar</button>
+      </div>
     </div>
   `;
 
@@ -58,8 +61,8 @@ function addCharacterToHand(character) {
   card.classList.add('card');
   card.setAttribute('draggable', true);
   card.innerHTML = `
-    <h3>${character.name}</h3>
     <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" />
+    <h3>${character.name}</h3>
   `;
   card.addEventListener('dragstart', drag);
 
