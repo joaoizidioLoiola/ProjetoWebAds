@@ -4,7 +4,7 @@ const baseUrl = 'https://gateway.marvel.com/v1/public/characters';
 
 async function fetchMarvelCharacters() {
   try {
-    const response = await fetch(`${baseUrl}?apikey=${public_key}`);
+    const response = await fetch(`https://gateway.marvel.com:443/v1/public/characters?apikey=${public_key}`);
     const data = await response.json();
     const characters = data.data.results;
     return characters;
