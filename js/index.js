@@ -1,8 +1,11 @@
-const public_key = "506ed6f89fef4fafdfc895eec59c7f35";
+const public_key = '506ed6f89fef4fafdfc895eec59c7f35';
 
 let currentPlayer = 1;
 let player1Count = 0;
 let player2Count = 0;
+
+let player1Characters = [];
+let player2Characters = [];
 
 async function fetchMarvelCharacters(query = '') {
   const url = query
@@ -82,27 +85,60 @@ function displayCharacterModal(character) {
 function addCharacterToHand(character) {
   if (currentPlayer === 1 && player1Count < 5) {
     const playerHand = document.getElementById('player-hand');
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `
-      <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
-      <h3>${character.name}</h3>
-    `;
+    const card = createCharacterCard(character, player1Characters, playerHand);
     playerHand.appendChild(card);
+    player1Characters.push(character);
     player1Count++;
     if (player1Count === 5) currentPlayer = 2;
   } else if (currentPlayer === 2 && player2Count < 5) {
     const opponentHand = document.getElementById('opponent-hand');
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `
-      <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
-      <h3>${character.name}</h3>
-    `;
+    const card = createCharacterCard(character, player2Characters, opponentHand);
     opponentHand.appendChild(card);
+    player2Characters.push(character);
     player2Count++;
     if (player2Count === 5) currentPlayer = 1;
   }
+}
+
+function createCharacterCard(character, playerArray, playerHand) {
+  const card = document.createElement('div');
+  card.classList.add('card');
+  card.innerHTML = `
+    <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
+    <h3>${character.name}</h3>
+    <button class="remove-character">Remover</button>
+  `;
+
+  // Botão para remover o personagem
+  const removeButton = card.querySelector('.remove-character');
+  removeButton.addEventListener('click', () => {
+    playerArray.splice(playerArray.indexOf(character), 1);
+    playerHand.removeChild(card);
+    if (playerArray === player1Characters) {
+      player1Count--;
+    } else {
+      player2Count--;
+    }
+  });
+
+  return card;
+}
+
+function clearAllCharacters(playerArray, playerHand) {
+  playerArray.length = 0;
+  playerHand.innerHTML = '';
+  if (playerArray === player1Characters) {
+    player1Count = 0;
+  } else {
+    player2Count = 0;
+  }
+}
+
+function calculateBattleResult() {
+  const battleResults = document.getElementById('battle-results');
+  // Aqui você pode implementar a lógica para calcular os resultados da batalha
+  // e exibir no elemento `battle-results`
+  battleResults.innerHTML = `Jogador 1 tem ${player1Characters.length} personagens. Jogador 2 tem ${player2Characters.length} personagens.`;
 }
 
 document.getElementById('search-input').addEventListener('input', (event) => {
@@ -115,3 +151,13 @@ document.getElementById('search-input').addEventListener('input', (event) => {
 fetchMarvelCharacters().then(characters => {
   displayCharacterList(characters);
 });
+
+document.getElementById('clear-player1').addEventListener('click', () => {
+  clearAllCharacters(player1Characters, document.getElementById('player-hand'));
+});
+
+document.getElementById('clear-player2').addEventListener('click', () => {
+  clearAllCharacters(player2Characters, document.getElementById('opponent-hand'));
+});
+
+document.getElementById('calculate-result').addEventListener('click', calculateBattleResult);
