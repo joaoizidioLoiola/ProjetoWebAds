@@ -3,7 +3,7 @@ const private_key = 'f4cb12401e8ec6a2d8270f11cbe3a83dcac6591c';
 
 async function fetchMarvel() {
   try {
-    const response = await fetch(`https://gateway.marvel.com/v1/public/characters?limit=150&apikey=${public_key}`)
+    const response = await fetch(`https://gateway.marvel.com/v1/public/characters?limit=100&apikey=${public_key}`)
     const data = await response.json()
     const persoganens = data.data.results;
     return persoganens;
