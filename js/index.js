@@ -43,11 +43,11 @@ function displayCharacterModal(characters) {
 // });
 
 // Botão para selecionar o personagem
-const selectButton = modal.querySelector('.select-character');
-selectButton.addEventListener('click', () => {
-  console.log(`Personagem ${character.name} selecionado`);
-  modal.style.display = 'none';
-});
+// const selectButton = modal.querySelector('.select-character');
+// selectButton.addEventListener('click', () => {
+//   console.log(`Personagem ${character.name} selecionado`);
+//   modal.style.display = 'none';
+// });
 
 document.getElementById('hero-modals').appendChild(modal);
 
