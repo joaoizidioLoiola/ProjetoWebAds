@@ -133,11 +133,43 @@ function clearAllCharacters(playerArray, playerHand) {
   }
 }
 
-function calculateBattleResult() {
+// Aqui você pode implementar a lógica para calcular os resultados da batalha
+// e exibir no elemento `battle-results`
+function calcularResultadoBatalha() {
   const battleResults = document.getElementById('battle-results');
-  // Aqui você pode implementar a lógica para calcular os resultados da batalha
-  // e exibir no elemento `battle-results`
-  battleResults.innerHTML = `Jogador 1 tem ${player1Characters.length} personagens. Jogador 2 tem ${player2Characters.length} personagens.`;
+  function gerarNums() {
+    let nums = [];
+    for (let i = 0; i < 5; i++) {
+      nums.push(Math.floor(Math.random() * 50));
+    }
+    return nums;
+  }
+
+  function compararNums(numsP1, numsP2) {
+    let numsP1 = 0;
+    let numsP2 = 0;
+
+    for (let i = 0; i < 5; i++) {
+      if (numsP1[i] > numsP2[i]) {
+        numsP1++;
+      } else if (numsP1[i] < numsP2[i]) {
+        numsP2++;
+      }
+    }
+
+    if (numsP1 > numsP2) {
+      return battleResults.innerHTML = `Jogador 1 venceu a batalha`;
+    } else if (numsP1 < numsP2) {
+      return battleResults.innerHTML = `Jogador 2 venceu a batalha`;
+    } else {
+      return "A batalha terminou em empate!";
+    }
+  };
+
+  let var1 = gerarNums();
+  let var2 = gerarNums();
+  console.log(compararNums(var1, var2));
+  // battleResults.innerHTML = `Jogador 1 tem ${player1Characters.length} personagens. Jogador 2 tem ${player2Characters.length} personagens.`;
 }
 
 document.getElementById('search-input').addEventListener('input', (event) => {
