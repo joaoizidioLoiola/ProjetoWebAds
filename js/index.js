@@ -146,20 +146,20 @@ function calcularResultadoBatalha() {
   }
 
   function compararNums(numsP1, numsP2) {
-    let numsP1 = 0;
-    let numsP2 = 0;
+    let player1Count = 0;
+    let player2Count = 0;
 
     for (let i = 0; i < 5; i++) {
       if (numsP1[i] > numsP2[i]) {
-        numsP1++;
+        player1Count++;
       } else if (numsP1[i] < numsP2[i]) {
-        numsP2++;
+        player2Count++;
       }
     }
 
-    if (numsP1 > numsP2) {
+    if (player1Count > player2Count) {
       return battleResults.innerHTML = `Jogador 1 venceu a batalha`;
-    } else if (numsP1 < numsP2) {
+    } else if (player2Count < player2Count) {
       return battleResults.innerHTML = `Jogador 2 venceu a batalha`;
     } else {
       return "A batalha terminou em empate!";
