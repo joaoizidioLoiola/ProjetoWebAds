@@ -45,11 +45,11 @@ function displayCharacterList(characters) {
   });
 }
 
+// Cria e exibe o modal para o personagem selecionado
 function displayCharacterModal(character) {
-  // Cria e exibe o modal para o personagem selecionado
   const modal = document.createElement('div');
   modal.classList.add('modal');
-  modal.style.display = 'block';
+  modal.style.display = 'block ';
 
   modal.innerHTML = `
     <div class="modal-content">
@@ -62,7 +62,6 @@ function displayCharacterModal(character) {
       </div>
     </div>
   `;
-
   document.body.appendChild(modal);
 
   // Botão para fechar o modal
