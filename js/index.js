@@ -146,8 +146,8 @@ function calcularResultadoBatalha() {
   }
 
   function compararNums(numsP1, numsP2) {
-    let numsP1 = 0;
-    let numsP2 = 0;
+    // let numsP1 = 0;
+    // let numsP2 = 0;
 
     for (let i = 0; i < 5; i++) {
       if (numsP1[i] > numsP2[i]) {
