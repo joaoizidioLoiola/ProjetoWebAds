@@ -53,7 +53,7 @@ button:hover {
   padding: 20px;
   border: 2px solid #20232a;
   width: 60%;
-  max-width: 400px;
+  max-width: 300px;
   border-radius: 10px;
   position: relative;
   display: flex;
@@ -63,14 +63,14 @@ button:hover {
 }
 
 .modal-content .imgModal {
-  max-width: 100%;
+  max-width: 80%;
   border-radius: 10px;
 }
 
 .close {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 15px;
   color: #ff0000;
   font-size: 28px;
   font-weight: bold;
