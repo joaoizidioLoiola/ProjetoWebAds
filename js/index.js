@@ -159,7 +159,7 @@ function calcularResultadoBatalha() {
 
     if (player1Count > player2Count) {
       return battleResults.innerHTML = `Jogador 1 venceu a batalha`;
-    } else if (player2Count < player2Count) {
+    } else if (player1Count < player2Count) {
       return battleResults.innerHTML = `Jogador 2 venceu a batalha`;
     } else {
       return "A batalha terminou em empate!";
