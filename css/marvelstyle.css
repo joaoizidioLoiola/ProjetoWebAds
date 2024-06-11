@@ -1,23 +1,37 @@
 body {
+  font-family: "Marvel", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
 header {
+  background-color: #20232a;
+  color: #61dafb;
+  padding: 20px;
+  text-align: center;
+  font-size: 2em;
+  border-bottom: 3px solid #ff0000;
 }
 
 /* Botões */
 button {
   display: inline-block;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 10px;
-  background-color: #007bff;
+  background-color: #ff0000;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #cc0000;
 }
 
 /* Estilo dos modais */
@@ -30,32 +44,34 @@ button:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
   background-color: #fff;
   margin: 10% auto;
-  padding: 10px;
-  border: 1px solid #888;
+  padding: 20px;
+  border: 2px solid #20232a;
   width: 60%;
-  max-width: 300px;
-  border-radius: 5px;
+  max-width: 400px;
+  border-radius: 10px;
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .modal-content .imgModal {
-  max-width: 55%;
-  border-radius: 5px;
+  max-width: 100%;
+  border-radius: 10px;
 }
 
 .close {
   position: absolute;
   top: 10px;
   right: 10px;
-  color: #aaa;
+  color: #ff0000;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -63,7 +79,7 @@ button:hover {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #cc0000;
 }
 
 /* Estilo das áreas de jogador */
@@ -72,38 +88,42 @@ button:hover {
   vertical-align: top;
   width: calc(50% - 20px);
   margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-hand {
   min-height: 200px;
-  border: 2px dashed #aaa;
-  border-radius: 5px;
-  padding: 10px;
+  border: 2px dashed #20232a;
+  border-radius: 10px;
+  padding: 20px;
   margin-top: 10px;
+  background-color: #f9f9f9;
 }
 
 .card-hand[droppable="true"] {
-  background-color: #f9f9f9;
+  background-color: #e1e1e1;
 }
 
 .card {
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .card img {
   max-width: 85px;
   margin-right: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 /* Estilo do rodapé */
@@ -114,35 +134,42 @@ footer {
   display: flex;
   padding: 10px;
   height: 10vh;
-  background-color: #333;
-  color: #fff;
+  background-color: #20232a;
+  color: #61dafb;
 }
 
 /* Lista de personagens */
 .character-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .character-card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
   margin: 10px;
   padding: 10px;
   width: 150px;
   text-align: center;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+  border-color: #ff0000;
 }
 
 .character-card img {
-  max-width: 55%;
-  border-radius: 5px;
+  max-width: 100%;
+  border-radius: 10px;
 }
 
 #search-input {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
 }
