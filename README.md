@@ -4,15 +4,27 @@ Este repositório contém duas aplicações web principais: um Gerenciador de No
 
 ## Índice
 
+- [Landing Page](#landing-page)
 - [Gerenciador de Notas](#gerenciador-de-notas)
   - [Funcionalidades](#funcionalidades-gerenciador)
   - [Instruções](#instruções-gerenciador)
 - [Batalha de Cartas da Marvel](#batalha-de-cartas-da-marvel)
   - [Funcionalidades](#funcionalidades-marvel)
   - [Instruções](#instruções-marvel)
-- [Landing Page](#landing-page)
 
 ## Gerenciador de Notas
+
+## Landing Page <a name="landing-page"></a>
+
+### Descrição
+
+A landing page é a página inicial que fornece uma visão geral das duas aplicações (Gerenciador de Notas e Batalha de Cartas da Marvel) e direciona para cada uma delas.
+
+### Instruções <a name="instruções-landing-page"></a>
+
+1. Abra a página `https://joaoizidioloiola.github.io/ProjetoWebAds/` no navegador.
+2. Terá a opção de qual aplicação testar primeiro.
+3. Ao clicar na opção, será redirecionado.
 
 ### Funcionalidades <a name="funcionalidades-gerenciador"></a>
 
@@ -56,9 +68,3 @@ Este repositório contém duas aplicações web principais: um Gerenciador de No
 - `marvel/index.html`: HTML principal da aplicação de batalha de cartas da Marvel.
 - `marvel/css/style.css`: Estilos específicos para a aplicação de batalha de cartas da Marvel.
 - `marvel/js/marvel.js`: Script JavaScript para a aplicação de batalha de cartas da Marvel.
-
-## Landing Page <a name="landing-page"></a>
-
-### Descrição
-
-A landing page é a página inicial que fornece uma visão geral das duas aplicações (Gerenciador de Notas e Batalha de Cartas da Marvel) e direciona para cada uma delas.
