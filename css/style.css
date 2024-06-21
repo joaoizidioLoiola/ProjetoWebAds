@@ -18,14 +18,16 @@ form {
   display: flex;
   margin-bottom: 20px;
 }
+
 footer {
-  width: 100%;
+  width: 100vh;
   text-align: center;
   align-items: center;
   justify-content: center;
   display: flex;
   padding: 10px;
   height: 10vh;
+  margin-top: 10px;
   background-color: #fff;
   color: #28a745;
 }
