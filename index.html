@@ -1,38 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gerenciador de Tarefas</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-    />
+    <title>Atividades Web</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="./js/main.js" defer></script>
-  </head>
-  <body>
-    <h1>Gerenciador de Tarefas</h1>
-    <form id="task-form">
-      <input
-        type="text"
-        id="task-input"
-        placeholder="Nova tarefa..."
-        required
-      />
-      <button type="submit">Adicionar Tarefa</button>
-    </form>
-    <div id="task-list-container"></div>
-
-    <div id="edit-modal" class="modal">
-      <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>Editar Tarefa</h2>
-        <input type="text" id="edit-task-input" />
-        <button id="save-edit-btn">Salvar</button>
-        <button id="cancel-edit-btn">Cancelar</button>
-      </div>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+        }
+        .description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .links {
+            display: flex;
+            justify-content: space-around;
+        }
+        .links a {
+            text-decoration: none;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .links a:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo às Atividades Web</h1>
+        <p class="description">
+            Nesta aplicação, você encontrará duas atividades principais:
+        </p>
+        <h2>1. Gerenciador de Notas</h2>
+        <p class="description">
+            No Notes, você pode gerenciar suas notas de forma prática e simples utilizando a API JSONPlaceholder. As funcionalidades incluem:
+            <ul>
+                <li>Criar novas notas</li>
+                <li>Editar notas existentes</li>
+                <li>Excluir notas</li>
+                <li>Buscar notas específicas</li>
+            </ul>
+        </p>
+        <h2>2. Batalha de Cartas da Marvel</h2>
+        <p class="description">
+            Na Batalha de Cartas da Marvel, você pode explorar diversos personagens do universo Marvel, utilizando a API da Marvel. As funcionalidades incluem:
+            <ul>
+                <li>Buscar heróis por nome</li>
+                <li>Ver detalhes do herói selecionado</li>
+                <li>Selecionar até 5 heróis para cada jogador</li>
+                <li>Remover heróis selecionados</li>
+                <li>Realizar uma simples batalha entre os heróis selecionados pelos dois jogadores</li>
+            </ul>
+        </p>
+        <div class="links">
+            <a href="/notes/index.html">Notes</a>
+            <a href="/marvel/index.html">Batalha de Cartas da Marvel</a>
+        </div>
     </div>
-    <footer>Desenvoldifo by João Izídio</footer>
-  </body>
+    <footer>Desenvolvido por João Izídio</footer>
+</body>
 </html>
