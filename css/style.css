@@ -18,6 +18,16 @@ form {
   display: flex;
   margin-bottom: 20px;
 }
+footer {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 10px;
+  height: 10vh;
+  background-color: #20232a;
+  color: #28a745;
+}
 
 input,
 button {
