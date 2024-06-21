@@ -9,7 +9,7 @@ let player2Characters = [];
 
 async function fetchMarvelCharacters(query = '') {
   const url = query
-    ? `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&limit=100&apikey=${public_key}`
+    ? `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&limit=50&apikey=${public_key}`
     : `https://gateway.marvel.com:443/v1/public/characters?limit=100&apikey=${public_key}`;
 
   try {
