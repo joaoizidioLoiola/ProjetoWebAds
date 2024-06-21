@@ -126,6 +126,11 @@ button:hover {
   border-radius: 10px;
 }
 
+#results {
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+}
+
 /* Estilo do rodapé */
 footer {
   text-align: center;

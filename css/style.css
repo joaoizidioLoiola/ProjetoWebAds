@@ -19,13 +19,14 @@ form {
   margin-bottom: 20px;
 }
 footer {
+  width: 100%;
   text-align: center;
   align-items: center;
   justify-content: center;
   display: flex;
   padding: 10px;
   height: 10vh;
-  background-color: #20232a;
+  background-color: #fff;
   color: #28a745;
 }
 
