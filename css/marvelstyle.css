@@ -141,6 +141,10 @@ footer {
   height: 10vh;
   background-color: #20232a;
   color: #61dafb;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Lista de personagens */

@@ -20,16 +20,19 @@ form {
 }
 
 footer {
-  width: 100vh;
+  width: 100%;
   text-align: center;
   align-items: center;
   justify-content: center;
   display: flex;
-  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   height: 10vh;
-  margin-top: 10px;
   background-color: #fff;
   color: #28a745;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 input,
