@@ -35,7 +35,7 @@ function createCharacterCard(character, onClick) {
 
 function displayCharacterList(characters) {
   const characterList = document.getElementById('character-list');
-  characterList.innerHTML = ''; // Clear previous characters
+  characterList.innerHTML = '';
 
   characters.forEach(character => {
     const card = createCharacterCard(character, displayCharacterModal);
